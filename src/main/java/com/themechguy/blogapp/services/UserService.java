@@ -1,7 +1,8 @@
 package com.themechguy.blogapp.services;
 
-import com.themechguy.blogapp.paylod.UserDto;
 import java.util.*;
+
+import com.themechguy.blogapp.payloads.UserDto;
 
 public interface UserService {
     //method to create user

@@ -12,8 +12,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import com.themechguy.blogapp.paylod.ApiResponse;
-import com.themechguy.blogapp.paylod.UserDto;
+
+import com.themechguy.blogapp.payloads.ApiResponse;
+import com.themechguy.blogapp.payloads.UserDto;
 import com.themechguy.blogapp.services.UserService;
 
 import jakarta.validation.Valid;

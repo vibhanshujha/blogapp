@@ -1,4 +1,4 @@
-package com.themechguy.blogapp.paylod;
+package com.themechguy.blogapp.payloads;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

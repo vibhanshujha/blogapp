@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.themechguy.blogapp.entities.User;
-import com.themechguy.blogapp.paylod.UserDto;
 import com.themechguy.blogapp.repositories.UserRepo;
 import com.themechguy.blogapp.services.UserService;
 import com.themechguy.blogapp.exceptions.ResourceNotFoundException;
+import com.themechguy.blogapp.payloads.UserDto;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -65,7 +65,6 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUser(Long userid) {
-        // TODO Auto-generated method stub
         // throw new UnsupportedOperationException("Unimplemented method 'deleteUser'");
         User user = this.userRepo.findById(userid).orElseThrow(()->new ResourceNotFoundException("User","Id", userid));
         this.userRepo.delete(user);
