@@ -17,6 +17,4 @@ public class PostDto {
     private String imageName;
     private Date addedDate;
     
-
-    
 }
