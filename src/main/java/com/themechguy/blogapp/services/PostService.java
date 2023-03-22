@@ -2,16 +2,15 @@ package com.themechguy.blogapp.services;
 
 import java.util.List;
 
-import com.themechguy.blogapp.entities.Post;
 import com.themechguy.blogapp.payloads.PostDto;
 
 public interface PostService {
-    Post createPost(PostDto postDto);
-    Post updatePost(PostDto postDto, Long postId);
+    PostDto createPost(PostDto postDto, Long userId, Long catId);
+    PostDto updatePost(PostDto postDto, Long postId);
     void deletePost(Long postId);
-    List<Post>getAllPost();
-    Post getPostById(Long postId);
-    List<Post> getPostByCategory(Long catId);
-    List<Post> getPostByUser(Long userId);
-    List<Post> searchPosts(String keyword);
+    List<PostDto>getAllPost();
+    PostDto getPostById(Long postId);
+    List<PostDto> getPostByCategory(Long catId);
+    List<PostDto> getPostByUser(Long userId);
+    List<PostDto> searchPosts(String keyword);
 }
