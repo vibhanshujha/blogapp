@@ -2,6 +2,7 @@ package com.themechguy.blogapp.services.serviceImpl;
 
 import java.util.Date;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -86,17 +87,21 @@ public class PostServiceImpl implements PostService{
 
     @Override
     public List<PostDto> getPostByCategory(Long catId) {
-
-
-        return null;
+        Category cat= this.catRepo.findById(catId).orElseThrow(()->new ResourceNotFoundException("Category", "category Id", catId));
+        List<Post> postsAsList=this.postRepo.findByCategory(cat);
+        //Method expects return type as PostDTO
+        List<PostDto> postDtoAsList = postsAsList.stream().map((post)->this.modelMapper.map(postsAsList, PostDto.class)).collect(Collectors.toList());
+        return postDtoAsList;
 
     }
 
     @Override
     public List<PostDto> getPostByUser(Long userId) {
-
-
-        return null;
+        User users= this.userRepo.findById(userId).orElseThrow(()->new ResourceNotFoundException("User", "user Id", userId));
+        List<Post> postAsListFromUsers = this.postRepo.findByUser(users);
+        //Method to return list as DTO;
+        List<PostDto> postDtoAsListFromUsers= postAsListFromUsers.stream().map((userPosts)->this.modelMapper.map(postAsListFromUsers, PostDto.class)).collect(Collectors.toList());
+        return postDtoAsListFromUsers;
 
     }
 
